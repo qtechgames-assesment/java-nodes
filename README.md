@@ -37,27 +37,6 @@ flowchart TD
  M --> N[13:Player N]
 ```
 
-### Database Structure Reference
-
-```markdown
-ID  | Name
-----|------------------
-0   | Casino (Reserved)
-1   | High Roller Bob
-2   | Slot King Carl
-3   | Poker Queen Diana
-4   | Player E
-5   | Player F
-6   | Player G
-7   | Player H
-8   | Player I
-9   | Player J
-10  | Player K
-11  | Player L
-12  | Player M
-13  | Player N
-```
-
 ## Your Mission: Build The Ultimate Player Network System
 
 We need a sophisticated API service that can manage our entire player network.
