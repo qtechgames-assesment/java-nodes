@@ -2,7 +2,7 @@
 
 ## The Big Game
 
-Welcome to Las Vegas Digital, the most ambitious online casino platform in the
+Welcome to QTech VIP Digital, the most ambitious online casino platform in the
 making! We're building a revolutionary system to track our VIP relationships,
 gaming hierarchies, and player networks. Just like Vegas itself, everything in
 our world is connected, flowing from the top whales down to the everyday
@@ -59,6 +59,10 @@ Here's what's at stake:
       to see their entire downline.
 
 ### For example
+
+> [!NOTE]  
+> This are references, no arquitectural desing or references, we encourage you
+> to update or change base on your criteria.
 
 * Query the Casino's entire network (ID: 0):
   * Example request:
