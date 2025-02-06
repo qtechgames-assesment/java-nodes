@@ -9,6 +9,23 @@ A child node can have its own children. A node with no children is called a leaf
 node. The root node is the top most node and it doesn’t have any parent. Each
 child node can only be a child of one parent node.
 
+```mermaid
+flowchart TD
+    A --> B
+    A --> C
+    A --> D
+    B --> E
+    B --> F
+    B --> G
+    B --> H
+    D --> I
+    D --> L
+    D --> M
+    I --> J
+    J --> K
+    M --> N
+```
+
 Please create a restful API service (no UI) for node management system. It should
 have the following functionalities:
 
