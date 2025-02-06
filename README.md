@@ -1,65 +1,160 @@
-# java-nodes
+# 🎰 The High Roller's Network
 
-## Challenge
+## The Big Game
 
-The data tree structure is a way to organize and store data in a hierarchical
-form. It is composed of nodes each connected by lines/edges. A parent node is a
-node connected to another node downline. The downline node is called a child
-node. A child node can have its children. A node with no children is called a
-leaf node. The root node is the topmost node and it doesn't have any parent.
-Each child node can only be a child of one parent node.
+Welcome to Las Vegas Digital, the most ambitious online casino platform in the
+making! We're building a revolutionary system to track our VIP relationships,
+gaming hierarchies, and player networks. Just like Vegas itself, everything in
+our world is connected, flowing from the top whales down to the everyday
+players.
+
+## The House Always Needs Structure
+
+In our casino, every player is a node in an intricate network of relationships.
+Think of it like our exclusive VIP referral system:
+
+* The Casino (root node) sits at the top
+* High Rollers (parent nodes) bring in their connections
+* Regular players (child nodes) bring in their friends
+* New players (leaf nodes) are just starting their journey
+
+Here's how our current network looks:
 
 ```mermaid
 flowchart TD
- A --> B
- A --> C
- A --> D
- B --> E
- B --> F
- B --> G
- B --> H
- D --> I
- D --> L
- D --> M
- I --> J
- J --> K
- M --> N
+ A[Casino] --> B[High Roller Bob]
+ A --> C[Slot King Carl]
+ A --> D[Poker Queen Diana]
+ B --> E[Player E]
+ B --> F[Player F]
+ B --> G[Player G]
+ B --> H[Player H]
+ D --> I[Player I]
+ D --> L[Player L]
+ D --> M[Player M]
+ I --> J[Player J]
+ J --> K[Player K]
+ M --> N[Player N]
 ```
 
-Please create a restful API service (no UI) for the node management system. It
-should have the following functionalities:
+## Your Mission: Build The Ultimate Player Network System
 
-1. Add nodes
-    * Given a node, the user should be able to add a child to that node
-2. Delete nodes
-    * Given a node, the user should be able to delete a child of that node
-3. move nodes from one parent to another
-    * Given a node, a user should be able to transfer it to a different parent.
-4. return the list of all downline nodes. For example, in the structure above,
-    * Given a user invoked the endpoint to get the child nodes of A, the
-      response will be `[B, C, D, E, F, G, H, I, J, K, L, M, N]`
-    * Given a user invoked the endpoint to get the child nodes of D, the
-      response will be `[I, J, K, L, M, N]`
-    * Given a user invoked the endpoint to get the child nodes of C, the
-      response will be `[ ]`
+We need a sophisticated API service that can manage our entire player network.
+Here's what's at stake:
 
-The application can start with a pre-defined root node.
+1. Welcome New Players to the Table
+    * Add new players under their referrers
+    * Track who brought whom to the casino
+    * Maintain the referral chain integrity
+2. Player Checkout
+    * Handle players leaving the network
+    * Maintain remaining connections
+    * Clean historical data properly
+3. VIP Host Reassignment
+    * Transfer players between different VIP hosts
+    * Update referral chains without losing history
+    * Maintain commission structures
+4. The Million Dollar Question - Network Tracking
+    * This is where the big money is! Given any player in our network, we need
+      to see their entire downline.
 
-## Requirements
+### For example
 
-* Please use
-  * springboot, latest version
-  * Java 17 or later versions
-  * any RDBMS or no SQL database
-  * maven or gradle
-* Append to this file how to `run`/`use`/`test` your app. If your app can
- host or include a generated **how to use my web service** it would be cool but
- not required
-* Apply REST best practices in terms of endpoint design, proper status
- xheaders for the operations, correct use of HTTP Verbs, content negotiation
- and entity representation.
-* Support JSON and xml as content-type
+* Query the Casino's (A) entire network:
+  * Example request:
 
-## Submission
+    ```shell
+    curl --url "https://mycasino.com/api/network/A/downline"
+    ```
 
-Deadline, 5 days after receiving the invitation
+  * Example reponse
+
+    ```json
+    ["B","C","D","E","F","G","H","I","J","K","L","M","N"]
+    ```
+
+    or 
+
+    ```XML
+    <nodes>
+      <node>B</node>
+      <node>C</node>
+      <node>D</node>
+      <node>E</node>
+      <node>F</node>
+      <node>G</node>
+      <node>H</node>
+      <node>I</node>
+      <node>J</node>
+      <node>K</node>
+      <node>L</node>
+      <node>M</node>
+      <node>N</node>
+    </nodes>
+    ```
+
+    >(Every player in the house!)
+
+* Query Poker Queen Diana's (D) network:
+  * Example request:
+
+    ```shell
+    curl --url "https://mycasino.com/api/network/D/downline"
+    ```
+
+  * Example reponse
+
+    ```json
+    ["I","J","K","L","M","N"]
+    ```
+
+    > (Everyone she and her referrals brought in)
+
+* Query Slot King Carl's (C) network::
+  * Example request:
+
+    ```shell
+    curl --url "https://mycasino.com/api/network/C/downline"
+    ```
+
+  * Example reponse
+
+    ```json
+    []
+    ```
+
+    > (Looks like Carl needs to step up his game!)
+
+## The Tech Stack (House Rules)
+
+Build your system using:
+
+* Spring Boot (latest) - as reliable as our slot machines
+* Java 17+ - faster than a dealer's shuffle
+* Any RDBMS/NoSQL - your chips, your choice
+* Maven/Gradle - house tools
+
+## Requirements (Casino Compliance)
+
+Your API must:
+
+* Follow REST best practices (we run a clean house)
+* Support both JSON and XML (for our international players)
+* Use proper HTTP status codes (like our precise payout systems)
+* Use propper HTTP Verbs (We speak like propper Genttlemen or Ladies)
+* Include proper documentation (house rules must be clear)
+
+## Time to Show Your Hand
+
+You have 5 days to build this system. Like any good poker player, show us:
+
+* How to run it
+* How to use it
+* How to test it
+
+Bonus chips if you creativity and **WOW!! Effect!**, we like to be surprise
+
+Remember: What happens in the API, stays in the API. Keep it clean, keep it
+professional, and make it scale like a Vegas weekend.
+
+Good luck, and may the odds be ever in your favor! 🎲
