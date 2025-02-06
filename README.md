@@ -13,7 +13,7 @@ players.
 In our casino, every player is a node in an intricate network of relationships.
 Think of it like our exclusive VIP referral system:
 
-* The Casino (root node) sits at the top
+* The Casino (root node, ID: 0) sits at the top
 * High Rollers (parent nodes) bring in their connections
 * Regular players (child nodes) bring in their friends
 * New players (leaf nodes) are just starting their journey
@@ -22,19 +22,40 @@ Here's how our current network looks:
 
 ```mermaid
 flowchart TD
- A[Casino] --> B[High Roller Bob]
- A --> C[Slot King Carl]
- A --> D[Poker Queen Diana]
- B --> E[Player E]
- B --> F[Player F]
- B --> G[Player G]
- B --> H[Player H]
- D --> I[Player I]
- D --> L[Player L]
- D --> M[Player M]
- I --> J[Player J]
- J --> K[Player K]
- M --> N[Player N]
+ A[0:Casino] --> B[1:High Roller Bob]
+ A --> C[2:Slot King Carl]
+ A --> D[3:Poker Queen Diana]
+ B --> E[4:Player E]
+ B --> F[5:Player F]
+ B --> G[6:Player G]
+ B --> H[7:Player H]
+ D --> I[8:Player I]
+ D --> L[11:Player L]
+ D --> M[12:Player M]
+ I --> J[9:Player J]
+ J --> K[10:Player K]
+ M --> N[13:Player N]
+```
+
+### Database Structure Reference
+
+```markdown
+ID  | Name
+----|------------------
+0   | Casino (Reserved)
+1   | High Roller Bob
+2   | Slot King Carl
+3   | Poker Queen Diana
+4   | Player E
+5   | Player F
+6   | Player G
+7   | Player H
+8   | Player I
+9   | Player J
+10  | Player K
+11  | Player L
+12  | Player M
+13  | Player N
 ```
 
 ## Your Mission: Build The Ultimate Player Network System
@@ -60,67 +81,158 @@ Here's what's at stake:
 
 ### For example
 
-* Query the Casino's (A) entire network:
+* Query the Casino's entire network (ID: 0):
   * Example request:
 
     ```shell
-    curl --url "https://mycasino.com/api/network/A/downline"
+    curl --url "https://myserver/api/network/0/downline.json"
     ```
 
-  * Example reponse
+  * Example response
 
     ```json
-    ["B","C","D","E","F","G","H","I","J","K","L","M","N"]
+    {
+      "nodes": [
+        {"id": 1, "name": "High Roller Bob"},
+        {"id": 4, "name": "Player E"},
+        {"id": 5, "name": "Player F"},
+        {"id": 6, "name": "Player G"},
+        {"id": 7, "name": "Player H"},
+        {"id": 2, "name": "Slot King Carl"},
+        {"id": 3, "name": "Poker Queen Diana"},
+        {"id": 8, "name": "Player I"},
+        {"id": 9, "name": "Player J"},
+        {"id": 10, "name": "Player K"},
+        {"id": 11, "name": "Player L"},
+        {"id": 12, "name": "Player M"},
+        {"id": 13, "name": "Player N"}
+      ]
+    }
     ```
 
-    or 
+    or
+
+  * Example request:
+
+    ```shell
+    curl --url "https://myserver/api/network/0/downline.xml"
+    ```
+
+  * Example response
 
     ```XML
     <nodes>
-      <node>B</node>
-      <node>C</node>
-      <node>D</node>
-      <node>E</node>
-      <node>F</node>
-      <node>G</node>
-      <node>H</node>
-      <node>I</node>
-      <node>J</node>
-      <node>K</node>
-      <node>L</node>
-      <node>M</node>
-      <node>N</node>
+      <node>
+        <id>1</id>
+        <name>High Roller Bob</name>
+      </node>
+      <node>
+        <id>4</id>
+        <name>Player E</name>
+      </node>
+      <node>
+        <id>5</id>
+        <name>Player F</name>
+      </node>
+      <node>
+        <id>6</id>
+        <name>Player G</name>
+      </node>
+      <node>
+        <id>7</id>
+        <name>Player H</name>
+      </node>
+      <node>
+        <id>2</id>
+        <name>Slot King Carl</name>
+      </node>
+      <node>
+        <id>3</id>
+        <name>Poker Queen Diana</name>
+      </node>
+      <node>
+        <id>8</id>
+        <name>Player I</name>
+      </node>
+      <node>
+        <id>9</id>
+        <name>Player J</name>
+      </node>
+      <node>
+        <id>10</id>
+        <name>Player K</name>
+      </node>
+      <node>
+        <id>11</id>
+        <name>Player L</name>
+      </node>
+      <node>
+        <id>12</id>
+        <name>Player M</name>
+      </node>
+      <node>
+        <id>13</id>
+        <name>Player N</name>
+      </node>
     </nodes>
     ```
 
     >(Every player in the house!)
 
-* Query Poker Queen Diana's (D) network:
+* Query Poker Queen Diana's network (ID: 3):
   * Example request:
 
     ```shell
-    curl --url "https://mycasino.com/api/network/D/downline"
+    curl --url "https://myserver/api/network/3/downline.json"
     ```
 
-  * Example reponse
+  * Example response
 
     ```json
-    ["I","J","K","L","M","N"]
+    {
+      "nodes": [
+        {"id": 8, "name": "Player I"},
+        {"id": 9, "name": "Player J"},
+        {"id": 10, "name": "Player K"},
+        {"id": 11, "name": "Player L"},
+        {"id": 12, "name": "Player M"},
+        {"id": 13, "name": "Player N"}
+      ]
+    }
     ```
 
-    > (Everyone she and her referrals brought in)
-
-* Query Slot King Carl's (C) network::
+* Query High Roller Bob's network (ID: 1):
   * Example request:
 
     ```shell
-    curl --url "https://mycasino.com/api/network/C/downline"
+    curl --url "https://myserver/api/network/1/downline.json"
     ```
 
-  * Example reponse
+  * Example response
 
     ```json
-    []
+    {
+      "nodes": [
+        {"id": 4, "name": "Player E"},
+        {"id": 5, "name": "Player F"},
+        {"id": 6, "name": "Player G"},
+        {"id": 7, "name": "Player H"}
+      ]
+    }
+    ```
+
+* Query Slot King Carl's network (ID: 2):
+  * Example request:
+
+    ```shell
+    curl --url "https://myserver/api/network/2/downline.xml"
+    ```
+
+  * Example response
+
+    ```xml
+    <nodes>
+    </nodes>
     ```
 
     > (Looks like Carl needs to step up his game!)
@@ -141,7 +253,7 @@ Your API must:
 * Follow REST best practices (we run a clean house)
 * Support both JSON and XML (for our international players)
 * Use proper HTTP status codes (like our precise payout systems)
-* Use propper HTTP Verbs (We speak like propper Genttlemen or Ladies)
+* Use proper HTTP Verbs (We speak like proper Gentlemen or Ladies)
 * Include proper documentation (house rules must be clear)
 
 ## Time to Show Your Hand
@@ -152,9 +264,10 @@ You have 5 days to build this system. Like any good poker player, show us:
 * How to use it
 * How to test it
 
-Bonus chips if you creativity and **WOW!! Effect!**, we like to be surprise
+Bonus chips if you show creativity and **WOW!! Effect!**, we like to be
+surprised.
 
 Remember: What happens in the API, stays in the API. Keep it clean, keep it
 professional, and make it scale like a Vegas weekend.
 
-Good luck, and may the odds be ever in your favor! 🎲
+Good luck, and may the odds be ever in your favour! 🎲
