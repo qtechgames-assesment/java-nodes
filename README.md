@@ -235,6 +235,10 @@ Your API must:
 * Use proper HTTP Verbs (We speak like proper Gentlemen or Ladies)
 * Include proper documentation (house rules must be clear)
 
+We highly encourage you to commit frequently. Your commit history should serve
+as a window into your thought process—each commit a play in your winning
+strategy. We will be reviewing your commit progress as part of our evaluation.
+
 ## Time to Show Your Hand
 
 You have 5 days to build this system. Like any good poker player, show us:
