@@ -67,6 +67,13 @@ Here's what's at stake:
     curl --url "https://myserver/api/network/0/downline.json"
     ```
 
+or
+
+    ```shell
+    curl --url "https://myserver/api/network/0/downline"
+    ```
+
+
   * Example response
 
     ```json
