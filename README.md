@@ -261,6 +261,8 @@ You have 5 days to build this system. Like any good poker player, show us:
 * How to use it
 * How to test it
 
+Please add me to your repository.  @aasanchez in Gitlab or Github
+
 Bonus chips if you show creativity and **WOW!! Effect!**, we like to be
 surprised.
 
