@@ -227,23 +227,30 @@ or
 
 Build your system using:
 
-* Spring Boot (latest) - as reliable as our slot machines
-* Java 17+ - faster than a dealer's shuffle
-* Any RDBMS/NoSQL - your chips, your choice
-* Maven/Gradle - house tools
+- **Tech Platform:** Use the latest version of Spring Boot.
+- **Language of the Game:** Code in Java 17 or later.
+- **Data Vault:** Choose any RDBMS or NoSQL database to securely manage the tree
+  of rewards.
+- **Build System:** Utilise Maven or Gradle to handle your project’s stakes.
+- **Insider’s Playbook:** Document how to run, use, and test your service. A
+  comprehensive guide for interacting with your API is a winning bonus!
+- **Double Down on Version Control:** We highly encourage you to commit
+  frequently. Your commit history should serve as a window into your thought
+  process—each commit is a play in your winning strategy. We will be reviewing your
+  commit progress as part of our evaluation.
 
 ## Requirements (Casino Compliance)
 
 Your API must:
 
 * Follow REST best practices (we run a clean house)
-* Support both JSON and XML (for our international players)
+* Support both JSON and XML (for our international players) (if not indicated, default json)
 * Use proper HTTP status codes (like our precise payout systems)
 * Use proper HTTP Verbs (We speak like proper Gentlemen or Ladies)
 * Include proper documentation (house rules must be clear)
 
 We highly encourage you to commit frequently. Your commit history should serve
-as a window into your thought process—each commit a play in your winning
+as a window into your thought process—each commit is a play in your winning
 strategy. We will be reviewing your commit progress as part of our evaluation.
 
 ## Time to Show Your Hand
